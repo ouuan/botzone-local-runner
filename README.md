@@ -13,4 +13,6 @@ The bots and the judger must be executable. You can use a bash script if the cod
 
 The number of bots is the number of players. The same bot file can be repeated.
 
-The outputs contain the `display` attribute from the judger.
+Several properties are not supported: `time`, `memory`, `verdict`, `time_limit`, `memory_limit`, `debug`.
+
+The outputs contain the `display` property from the judger.
