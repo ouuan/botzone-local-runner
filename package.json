@@ -1,0 +1,22 @@
+{
+  "name": "botzone-local-runner",
+  "version": "0.1.0",
+  "description": "在本地运行 Botzone judger & bot",
+  "bin": "runner.js",
+  "repository": "https://github.com/ouuan/botzone-local-runner",
+  "author": "Yufan You <ouuansteve@gmail.com>",
+  "license": "Apache-2.0",
+  "private": false,
+  "scripts": {
+    "start": "node runner.js",
+    "lint": "eslint *.js --fix"
+  },
+  "dependencies": {
+    "commander": "^8.1.0"
+  },
+  "devDependencies": {
+    "eslint": "^7.14.0",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-plugin-import": "^2.22.1"
+  }
+}
