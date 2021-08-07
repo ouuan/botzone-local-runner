@@ -1,6 +1,6 @@
 # Botzone local runner
 
-Run Botzone judger & bots at local.
+Run [Botzone](https://botzone.org.cn) judger & bots at local.
 
 You need:
 
