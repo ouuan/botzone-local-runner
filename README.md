@@ -15,4 +15,6 @@ The number of bots is the number of players. The same bot file can be repeated.
 
 Several properties are not supported: `time`, `memory`, `verdict`, `time_limit`, `memory_limit`, `debug`.
 
+Only JSON interaction is supported.
+
 The outputs contain the `display` property from the judger.
