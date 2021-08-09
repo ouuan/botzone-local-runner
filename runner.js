@@ -17,16 +17,17 @@ const { version } = require('./package.json');
 program.version(version)
   .requiredOption('-j, --judger <judger>', 'Executable judger program')
   .requiredOption('-b, --bot <bots...>', 'Executable bot programs')
+  .option('-i, --initdata <initdata>', 'Stringified JSON initdata (optional)', "")
   .parse();
 
 const { judger, bot } = program.opts();
+let { initdata } = program.opts();
 
 const log = [];
 const requests = Array.from(Array(bot.length), () => []);
 const responses = Array.from(Array(bot.length), () => []);
 const data = Array(bot.length);
 const globaldata = Array(bot.length);
-let initdata = "";
 
 for (let round = 0; ; ++round) {
   const output = JSON.parse(execSync(judger, { input: JSON.stringify({ log, initdata }) }));
