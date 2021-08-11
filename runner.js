@@ -21,7 +21,10 @@ program.version(version)
   .parse();
 
 const { judger, bot } = program.opts();
-let initdata = JSON.parse(program.opts().initdata);
+let initdata = "";
+try {
+  initdata = JSON.parse(program.opts().initdata);
+} catch { }
 
 const log = [];
 const requests = Array.from(Array(bot.length), () => []);
