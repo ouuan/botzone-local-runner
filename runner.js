@@ -21,7 +21,7 @@ program.version(version)
   .parse();
 
 const { judger, bot } = program.opts();
-let { initdata } = program.opts();
+let initdata = JSON.parse(program.opts().initdata);
 
 const log = [];
 const requests = Array.from(Array(bot.length), () => []);
@@ -56,7 +56,7 @@ for (let round = 0; ; ++round) {
     const botOutput = JSON.parse(execSync(bot[player], { input }));
     data[player] = botOutput.data;
     globaldata[player] = botOutput.globaldata;
-    res[player] = { response: botOutput.response };
+    res[player] = { verdict: "OK", response: botOutput.response };
     responses[player].push(botOutput.response);
   }
   log.push(res);

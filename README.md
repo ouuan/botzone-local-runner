@@ -13,7 +13,7 @@ The bots and the judger must be executable. You can use a bash script if the cod
 
 The number of bots is the number of players. The same bot file can be repeated.
 
-Several properties are not supported: `time`, `memory`, `verdict`, `time_limit`, `memory_limit`, `debug`.
+Several properties are not supported: `time`, `memory`, `time_limit`, `memory_limit`, `debug`. TLE is not detected. RE will cause the runner to fail.
 
 Only JSON interaction is supported.
 
