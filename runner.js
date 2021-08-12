@@ -14,6 +14,15 @@ const { execSync } = require('child_process');
 const { program } = require('commander');
 const { version } = require('./package.json');
 
+function exec(command, options) {
+  try {
+    return execSync(command, options);
+  } catch (err) {
+    console.log(options.input);
+    throw err;
+  }
+}
+
 program.version(version)
   .requiredOption('-j, --judger <judger>', 'Executable judger program')
   .requiredOption('-b, --bot <bots...>', 'Executable bot programs')
@@ -33,7 +42,7 @@ const data = Array(bot.length);
 const globaldata = Array(bot.length);
 
 for (let round = 0; ; ++round) {
-  const output = JSON.parse(execSync(judger, { input: JSON.stringify({ log, initdata }) }));
+  const output = JSON.parse(exec(judger, { input: JSON.stringify({ log, initdata }) }));
   const { command, content, display } = output;
   if (round === 0 && output.initdata !== void (0)) initdata = output.initdata;
   console.log(display);
@@ -56,7 +65,7 @@ for (let round = 0; ; ++round) {
       data: data[player],
       globaldata: globaldata[player]
     });
-    const botOutput = JSON.parse(execSync(bot[player], { input }));
+    const botOutput = JSON.parse(exec(bot[player], { input }));
     data[player] = botOutput.data;
     globaldata[player] = botOutput.globaldata;
     res[player] = { verdict: "OK", response: botOutput.response };
